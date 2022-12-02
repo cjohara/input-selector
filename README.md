@@ -9,6 +9,7 @@ I wanted to add a drop-down selector to my menu bar in order to switch inputs on
 * [xbar](https://github.com/matryer/xbar)
 * [ddcctl](https://github.com/kfix/ddcctl)
 * [edid-decode](https://git.linuxtv.org/edid-decode.git/about/)
+* [wakeonlan](https://formulae.brew.sh/formula/wakeonlan)
 
 ## Installation
 

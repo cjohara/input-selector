@@ -8,7 +8,8 @@ EDID_DECODE="/usr/local/sbin/edid-decode"
 PLISTBUDDY="/usr/libexec/PlistBuddy -c"
 PLIST="/Library/Preferences/com.apple.windowserver.plist"
 DDC="$HOME/Repositories/input-selector/shell/ddc.sh"
-ICON="https://raw.githubusercontent.com/cjohara/input-selector/main/resources/icon.png"
+WAKE_ON_LAN="/usr/local/bin/wakeonlan"
+ICON="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAABTklEQVRYhcWXYW3DMBCF36r+XyCUQcdgHoOOQSEUQiCEwcZgFFwGKYNCyBDc9CRn8qxovfhs50mVmsjx+3I+ny9PIoIttQ/eBwBnAK4RiwcwAJgYgROAr42C8E4A0rxuBHAlQJwEN4alsmkH4Ph7JX/lyFP552LHXeW3fSgLAHfNGELaHIDmH2EtvQUiF2CI/psgcgFYsL6LQBgy/kVEpmQXjSLSPXiu2C4YS0SCZ0Hp02iGcJqiVqsOEOJTM7AWAJel1wzkErwZjLrwps+JuQs5ogLwBnNvMV8CuCgfns2P0b3V5jNA3Atot08Rcyo3CWOjbHNqrxizpHO4d7KYWwAQINjM3g1zmOuAyZxKI9CiNT/EF2xKxySjW+q2S5qL1hrmTzMXJdWSuoxmY/rnNLyHEu61zUcv69Vr5t68LdfWAYbsunJu1Rbd9vMcwA9gv4kWfY+BIgAAAABJRU5ErkJggg=="
 
 # Variables
 COMMAND_ARGS_INPUT_PC=""
@@ -88,12 +89,20 @@ function create_all_submenu() {
     echo "--MacBook Pro | shell=${DDC} ${COMMAND_ARGS_INPUT_MBP} terminal=false refresh=false"
 }
 
+function create_wake_submenu() {
+	echo "---"
+	echo "Wake"
+
+	echo "--Gaming PC | shell=${WAKE_ON_LAN} param1='00:D8:61:C5:84:74' terminal=true refresh=false"
+}
+
 function create_menu() {
     echo "| image=${ICON}"
     echo "---"
 
     create_display_submenus
     create_all_submenu
+		create_wake_submenu
 }
 
 create_menu
