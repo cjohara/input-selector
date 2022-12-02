@@ -8,6 +8,7 @@ EDID_DECODE="/usr/local/sbin/edid-decode"
 PLISTBUDDY="/usr/libexec/PlistBuddy -c"
 PLIST="/Library/Preferences/com.apple.windowserver.plist"
 DDC="$HOME/Repositories/input-selector/shell/ddc.sh"
+ICON="https://raw.githubusercontent.com/cjohara/input-selector/main/resources/icon.png"
 
 # Variables
 COMMAND_ARGS_INPUT_PC=""
@@ -88,7 +89,7 @@ function create_all_submenu() {
 }
 
 function create_menu() {
-    echo "Displays"
+    echo "| image=${ICON}"
     echo "---"
 
     create_display_submenus
